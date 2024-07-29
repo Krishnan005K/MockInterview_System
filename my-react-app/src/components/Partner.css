@@ -1,0 +1,21 @@
+.partner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .partner-text {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+
+  }
+  
+  .partner-logo {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+  }
+  
