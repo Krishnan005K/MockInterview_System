@@ -1,0 +1,142 @@
+.coder-dashboard {
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .sidebar-coder {
+    width: 200px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 105vh;
+    /* width:160px; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-section {
+    text-align: center;
+  }
+  
+  .prof-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .profile-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .profile-button:hover {
+    background: #0056b3;
+  }
+  
+  .sidebar-menu {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ecf0f1;
+    transition: background 0.3s;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #f1f1f11c;
+  }
+  
+  .menu-icon {
+    margin-right: 10px;
+  }
+  
+  .logout-button {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .logout-button:hover {
+    background: #c82333;
+  }
+  
+  .content-section {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .card {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    padding-left: 400px;
+  }
+  
+  .profile-card, .upcoming-interviews-card, .completed-reports-card {
+    border: 1px solid #ddd;
+    /* padding-left: 400px; */
+  }
+  
+  .edit-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .edit-button:hover {
+    background: #0056b3;
+  }
+  
+  .interview-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .reports-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .reports-table th, .reports-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .reports-table th {
+    background-color: #f8f9fa;
+  }
+  

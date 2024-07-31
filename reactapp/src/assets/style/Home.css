@@ -1,0 +1,342 @@
+
+/* Container for Home Page */
+.home-con {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    animation: fadeInPage 1s ease-in-out; /* Animation for the Home page */
+}
+
+/* Parent Container with Background Image */
+.home-parent-container {
+    background-image: url('C:\Users\91739\Desktop\App\App_Development\reactapp\src\assets\images\bg img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 94vh; /* Adjust the height as needed */
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+/* Container for Centered Content */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1; /* Ensures content is above the SVG */
+}
+
+/* Heading Styles */
+.home-text {
+    font-size: 3em; /* Adjust size as needed */
+    margin: 0;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff); /* Multi-color gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorShift 5s infinite linear; /* Multi-color animation */
+}
+
+/* Keyframes for Color Shift Animation */
+@keyframes colorShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Keyframes for Page Fade-In Animation */
+@keyframes fadeInPage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Custom Shape Divider */
+.custom-shape-divider-bottom-1721975298 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg); /* Rotates the shape divider */
+}
+
+.custom-shape-divider-bottom-1721975298 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1721975298 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/* Content Container */
+.content-container {
+    padding: 20px 0;
+}
+
+/* Row for alternating content and image */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 80%; /* Adjust width as needed */
+    padding-left: 100px;
+}
+
+/* Content Styles */
+.content, .image {
+    flex: 1;
+    padding: 90px;
+}
+
+/* Heading Styles in content */
+.content h1 {
+    font-size: 2.3em;
+    margin: 0;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff); /* Multi-color gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorShift 5s infinite linear; /* Multi-color animation */
+}
+
+/* Paragraph Styles in content */
+.content p {
+    font-size: 1.7em;
+    color: #333;
+    margin: 10px 0 0 0;
+}
+
+/* Image Styles */
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Button Styles */
+.home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}
+
+/* Four Divisions Container */
+.four-divisions-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    padding-left: 200px; /* Adjust as needed */
+    gap: 20px; /* Add some space between the cards */
+}
+
+/* Individual Division */
+.division {
+    flex: 0 0 45%; /* Adjust for layout */
+    max-width: 45%; /* Ensure cards don't stretch too much */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.division-icon {
+    width: 130px; /* Adjust size as needed */
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.division h2 {
+    font-size: 1.6em; /* Adjust the size as needed */
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff); /* Multi-color gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorShift 5s infinite linear; /* Multi-color animation */
+    margin-bottom: 10px;
+}
+
+.division p {
+    font-size: 1.2em; /* Increase the font size */
+    color: #333;
+    line-height: 1.5;
+}
+/* Central Image */
+.central-image {
+    position: absolute;
+    width: 3c00px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Rotating Images Container */
+.rotating-images-container {
+    position: relative;
+    width: 300px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    margin: 20px auto; /* Center and space out */
+    overflow: hidden;
+}
+
+/* Wrapper for rotating images */
+.rotating-images-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* animation: rotateAll 20s infinite linear; Continuous rotation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual rotating image container */
+.rotating-image {
+    position: absolute;
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */ padding-right: 50px;
+}
+
+/* Ensure images are upright */
+.rotating-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    display: block; /* Ensures no extra space around the image */
+}
+
+/* Keyframes for rotating all images */
+@keyframes rotateAll {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Positioning each image in a circular path
+.rotating-image:nth-child(1) {
+    transform: rotate(0deg) translateY(-120px) rotate(0deg);
+}
+
+.rotating-image:nth-child(2) {
+    transform: rotate(90deg) translateY(-120px) rotate(-90deg);
+}
+
+.rotating-image:nth-child(3) {
+    transform: rotate(180deg) translateY(-120px) rotate(-180deg);
+}
+
+.rotating-image:nth-child(4) {
+    transform: rotate(270deg) translateY(-120px) rotate(-270deg);
+} */
+.new-content-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.new-content-container h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff); /* Multi-color gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorShift 5s infinite linear; /* Multi-color animation */
+}
+
+.new-content-container p {
+    font-size: 25px;
+    color: #333;
+    margin-top: 0;
+    padding-left: 470px;
+    padding-right: 450px;
+}
+
+.company-img {
+    max-width: 100%;
+    height: 600px;
+    width:800px;
+    padding-top: 90px;
+    margin: 20px auto; /* Center and space out */
+    display: block;
+}
+.footer {
+    background-color: #1a1b2e; /* Dark blue background */
+    color: #fff; /* White text color */
+    padding: 20px 0;
+    text-align: center;
+    height: 200px;
+    /* font-size: 30px; */
+    margin-top: 20px; /* Space between footer and previous content */
+}
+
+.footer-links,
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between links */
+    margin-bottom: 15px; /* Space between links and disclaimer */
+    /* font-size: 30px; */
+}
+
+.footer-links a,
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px; /* Size of the text */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    padding-top: 30px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: #6c63ff; /* Light purple color on hover */
+}
+
+.footer-social a {
+    font-size: 26px; /* Size of the social media icons */
+}
+
+.footer-disclaimer {
+    font-size: 16px; /* Size of the disclaimer text */
+    /* margin-top: 10px; Space between social icons and disclaimer */
+    padding-top: 20px;
+}

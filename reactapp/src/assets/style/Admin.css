@@ -1,0 +1,117 @@
+/* Basic CSS for Admin Dashboard */
+
+.admin {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-icon {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li:hover {
+  background-color: #34495e;
+}
+
+.sidebar ul li svg {
+  margin-right: 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.profile, .statistics, .schedules, .interviewers, .coders, .add-user, .reports {
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-right: 10px;
+  width: calc(33% - 10px);
+  float: left;
+}
+
+.card h3 {
+  margin: 0;
+}
+
+.card p {
+  font-size: 24px;
+  margin: 10px 0 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3498db;
+}
