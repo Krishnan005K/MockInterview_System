@@ -1,0 +1,67 @@
+.interviewee-schedules-container {
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 10px solid rgba(245, 245, 245, 0.5);
+    animation: fadeIn 1s ease-in-out;
+    
+  }
+  
+  .interviewee-schedules-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .interviewee-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .interviewee-interview-card {
+    background-color: #FBF9EC;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 0 0 auto;
+    min-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .interviewee-card-content {
+    text-align: left;
+  }
+  
+  .interviewee-card-content p {
+    margin: 5px 0;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

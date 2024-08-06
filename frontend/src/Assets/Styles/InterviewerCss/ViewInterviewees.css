@@ -1,0 +1,87 @@
+.interviewees-view {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.37);
+    border: 10px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .interviewees-view h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .interviewees-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .interviewees-filters input, .interviewees-filters select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .interviewees-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .interviewees-card {
+    background-color: #FBF9EC;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .interviewees-card.full-row-card {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+  }
+  
+  .interviewees-count-circle {
+    background-color: #F2A950;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    margin: 20px auto;
+  }
+  
+  .interviewees-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .interviewees-table th, .interviewees-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .interviewees-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .interviewees-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

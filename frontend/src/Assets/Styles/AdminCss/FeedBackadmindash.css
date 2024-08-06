@@ -1,0 +1,102 @@
+/* FeedbackAdminDashboard.css */
+
+/* Main Container */
+.feedback-admin-container {
+    background-color: #f4f4f4e3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.feedback-admin-container h2 {
+    color: #333333;
+}
+
+/* Filters */
+.feedback-admin-filters {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback-admin-filters select {
+    padding: 10px;
+    border: 1px solid #d6d3ccd2;
+    border-radius: 5px;
+    background-color: #fafafa;
+    color: #333333;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-admin-filters select:hover {
+    background-color: #fafafa;
+}
+
+/* Feedback Cards */
+.feedback-admin-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feedback-admin-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.feedback-admin-card:hover {
+    transform: scale(1.05);
+}
+
+.feedback-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #F2BB9B;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.feedback-admin-header h3 {
+    margin: 0;
+    color: #333333;
+}
+
+.feedback-admin-type {
+    background-color: #F2BB9B;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.feedback-admin-email {
+    color: #333333;
+    margin: 10px 0;
+}
+
+.feedback-admin-comment {
+    color: #333333;
+    font-style: italic;
+}
+
+.feedback-admin-rating {
+    color: #F2B950;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

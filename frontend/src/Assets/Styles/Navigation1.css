@@ -1,0 +1,152 @@
+/* Navigation1.css */
+
+/* Default Light Theme */
+.nav-1-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff; /* Light theme background color */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the navbar */
+    transition: background-color 0.3s ease;
+}
+
+.nav-1-ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.skct-logo-container {
+    margin-right: auto; /* Align the logo container to the left */
+}
+
+.nav1-pages-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.nav1-pages-container li {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav1-pages-container a {
+    text-decoration: none;
+    color: #333; /* Light theme text color */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.nav1-pages-container a:hover {
+    color: #007BFF; /* Change color on hover */
+}
+
+.nav1-pages-container a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #007BFF; /* Underline color on hover */
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav1-pages-container a:hover::after {
+    width: 100%;
+}
+
+.nav1-pages-container img {
+    width: 30px; /* Adjust the size of the profile image */
+    height: 30px;
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.nav1-pages-container img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+.skct-logo-container img {
+    width: 50px; /* Adjust the size of the logo */
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.skct-logo-container img:hover {
+    transform: rotate(360deg); /* Rotate the logo on hover */
+}
+
+/* Dark Theme Styles */
+.nav-1-container.dark {
+    background-color: #333; /* Dark theme background color */
+}
+
+.nav1-pages-container a.dark {
+    color: #fff; /* Dark theme text color */
+}
+
+.nav-1-container.dark .nav1-pages-container a {
+    color: #fff; /* Ensure links are visible in dark theme */
+}
+
+.nav-1-container.dark .nav1-pages-container a:hover {
+    color: #007BFF; /* Maintain hover color */
+}
+
+.nav-1-container.dark .nav1-pages-container a::after {
+    background: #007BFF; /* Maintain underline color in dark theme */
+}
+
+.nav-1-container.dark .skct-logo-container img {
+    filter: brightness(0) invert(1); /* Ensure logo is visible on dark background */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-1-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav1-pages-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav1-pages-container li {
+        width: 100%;
+    }
+
+    .nav1-pages-container a {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-1-container {
+        padding: 10px;
+    }
+
+    .skct-logo-container img {
+        width: 40px;
+    }
+
+    .nav1-pages-container a {
+        font-size: 14px;
+    }
+
+    .nav1-pages-container img {
+        width: 25px;
+        height: 25px;
+    }
+}

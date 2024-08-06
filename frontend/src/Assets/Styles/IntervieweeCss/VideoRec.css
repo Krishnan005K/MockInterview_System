@@ -1,0 +1,67 @@
+.video-rec-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.video-container {
+    margin-bottom: 20px;
+}
+
+.video-container.large {
+    width: 100%;
+    max-width: 800px;
+}
+
+.video-frame {
+    width: 100%;
+}
+
+.button-container {
+    margin-bottom: 20px;
+}
+
+.start-button, .stop-button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.question-popup {
+    margin-bottom: 20px;
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.transcription-container, .ai-feedback-container {
+    margin-top: 20px;
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.video-preview-container {
+    margin-top: 20px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
