@@ -1,0 +1,94 @@
+/* src/Assets/Styles/UserView.css */
+
+.user-view {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.37);
+    border: 10px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .user-view h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .filters input, .filters select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background-color: #FBF9EC;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .full-row-card {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+  }
+  
+  .half-row-card {
+    flex: 1 1 48%;
+    margin-bottom: 10px;
+  }
+  
+  .count-circle {
+    background-color: #F2A950;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    margin: 20px auto;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th, .user-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .user-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .user-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

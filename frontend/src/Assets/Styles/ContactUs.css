@@ -1,0 +1,90 @@
+/* Contact Us container */
+.contactus-container {
+    background-image: url("../Images/bglogin.jpeg"); /* Adjust as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Contact Us form */
+  .contactus-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.37);
+    border: 10px solid rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .contactus-form h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Input fields */
+  .contactus-form input,
+  .contactus-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+  }
+  
+  .contactus-form input:focus,
+  .contactus-form textarea:focus {
+    border-color: #f9b026;
+    outline: none;
+  }
+  
+  /* Button */
+  .contactus-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f9b026;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .contactus-form button:hover {
+    background-color: #e58e26;
+    transform: scale(1.05);
+  }
+  
+  .contactus-form button:active {
+    background-color: #f9b026;
+    transform: scale(0.95);
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 10px;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

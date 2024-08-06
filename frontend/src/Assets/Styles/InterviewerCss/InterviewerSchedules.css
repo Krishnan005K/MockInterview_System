@@ -1,0 +1,142 @@
+.interviewer-schedules-container {
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 10px solid rgba(245, 245, 245, 0.5);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .interviewer-schedules-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .interviewer-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .interviewer-interview-card {
+    background-color: #FBF9EC;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 0 0 auto;
+    min-width: 300px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  .interviewer-interview-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .interviewer-card-content {
+    text-align: left;
+  }
+  
+  .interviewer-card-content p {
+    margin: 5px 0;
+  }
+  
+  .interviewer-card-content button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #F2A950;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .interviewer-card-content button:hover {
+    background-color: #d98b39;
+  }
+  
+  .interviewer-test-form-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .interviewer-test-form-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .interviewer-questions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .interviewer-question-card {
+    background-color: #FBF9EC;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .interviewer-question-card p {
+    margin: 5px 0;
+  }
+  
+  .interviewer-option {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  
+  .interviewer-option input {
+    margin-right: 10px;
+  }
+  
+  .interviewer-test-form-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #F2A950;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .interviewer-test-form-container button:hover {
+    background-color: #d98b39;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

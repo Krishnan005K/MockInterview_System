@@ -1,0 +1,106 @@
+/* ScheduleAdminDashboard.css */
+
+.schedule-admin-container {
+    background-color: #F4F4F4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .schedule-admin-container h2 {
+    color: #333;
+  }
+  
+  .schedule-admin-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .schedule-admin-form input {
+    padding: 10px;
+    border: 1px solid #d6d3ccd2;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    flex: 1 1 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .schedule-admin-form input:hover {
+    background-color: #fafafa;
+  }
+  
+  .schedule-admin-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F2BB9B;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .schedule-admin-form button:hover {
+    background-color: #F2A950;
+  }
+  
+  .schedule-admin-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .schedule-admin-card {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease;
+  }
+  
+  .schedule-admin-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .schedule-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #F2BB9B;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .schedule-admin-header h3 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .schedule-admin-date {
+    background-color: #F2BB9B;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .schedule-admin-info {
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
