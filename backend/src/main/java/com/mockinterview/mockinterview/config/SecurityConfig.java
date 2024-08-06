@@ -1,65 +1,83 @@
-// package com.mockinterview.mockinterview.config;
+package com.mockinterview.mockinterview.config;
 
-// import com.mockinterview.mockinterview.security.JwtAuthenticationEntryPoint;
-// import com.mockinterview.mockinterview.security.JwtRequestFilter;
-// import com.mockinterview.mockinterview.service.implementation.UserDetailsServiceImpl;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.authentication.AuthenticationManager;
-// import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-// import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
-// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-// import org.springframework.security.config.http.SessionCreationPolicy;
-// import org.springframework.security.core.userdetails.UserDetailsService;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.security.web.SecurityFilterChain;
-// import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import java.util.Arrays;
+import java.util.List;
 
-// @Configuration
-// @EnableWebSecurity
-// @EnableMethodSecurity
-// public class SecurityConfig {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-//     @Autowired
-//     private JwtRequestFilter jwtRequestFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-//     @Autowired
-//     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+import lombok.RequiredArgsConstructor;
 
-//     @Bean
-//     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//         http.cors().and().csrf().disable()
-//             .authorizeHttpRequests(authorizeRequests ->
-//                 authorizeRequests
-//                     .requestMatchers("/api/register", "/api/login").permitAll()
-//                     .anyRequest().authenticated()
-//             )
-//             .exceptionHandling()
-//                 .authenticationEntryPoint(jwtAuthenticationEntryPoint)
-//             .and()
-//             .sessionManagement()
-//                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity
+@RequiredArgsConstructor
+public class SecurityConfig {
 
-//         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        @Autowired
+        private AuthenticationFilter authenticationFilter;
 
-//         return http.build();
-//     }
+        @Autowired
+        private AuthenticationProvider authenticationProvider;
 
-//     @Bean
-//     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-//         return authenticationConfiguration.getAuthenticationManager();
-//     }
+        public static final List<String> HEADERS = Arrays.asList("Authorization", "Content-Type");
+        public static final List<String> METHODS = Arrays.asList("GET", "POST", "PUT", "DELETE");
+        public static final List<String> ORIGINS = Arrays.asList("http://localhost:3000");
 
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//         return new BCryptPasswordEncoder();
-//     }
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+                return httpSecurity
+                                .cors(corsConfirguarationSource -> corsConfirguarationSource.configurationSource(
+                                                corsConfigurationSource()))
+                                .csrf(AbstractHttpConfigurer::disable)
+                                .authorizeHttpRequests(
+                                                request -> request.requestMatchers(
+                                                                "/api/users/createUser",
+                                                                "/api/auth/home",
+                                                                "/api/auth/authenticate").permitAll())
+                                .authorizeHttpRequests(request -> request
+                                                .requestMatchers(
+                                                                "/v3/api-docs/**",
+                                                                "/swagger-ui.html",
+                                                                "/swagger-ui/**",
+                                                                "/**")
+                                                .permitAll())
+                                .authorizeHttpRequests(requests -> requests
+                                                .requestMatchers(
+                                                                "/api/users/**",
+                                                                "/api/auth/**",
+                                                                "/api/course/**",
+                                                                "/api/enrollments/**")
+                                                .authenticated())
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .authenticationProvider(authenticationProvider)
+                                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                                .build();
+        }
 
-//     @Bean
-//     public UserDetailsService userDetailsService() {
-//         return new UserDetailsServiceImpl();
-//     }
-// }
+        @Bean
+        public CorsConfigurationSource corsConfigurationSource() {
+                CorsConfiguration configuration = new CorsConfiguration();
+                configuration.setAllowedHeaders(HEADERS);
+                configuration.setAllowCredentials(true);
+                configuration.setAllowedMethods(METHODS);
+                configuration.setAllowedOrigins(ORIGINS);
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", configuration);
+                return source;
+        }
+}

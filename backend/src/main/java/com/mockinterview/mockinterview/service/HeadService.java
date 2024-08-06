@@ -1,16 +1,17 @@
 package com.mockinterview.mockinterview.service;
 
-import com.mockinterview.mockinterview.model.Mentor;
-import com.mockinterview.mockinterview.model.Head;
-import com.mockinterview.mockinterview.model.Student;
-import com.mockinterview.mockinterview.repository.MentorRepository;
-import com.mockinterview.mockinterview.repository.HeadRepository;
-import com.mockinterview.mockinterview.repository.StudentRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.mockinterview.mockinterview.model.Head;
+import com.mockinterview.mockinterview.model.Mentor;
+import com.mockinterview.mockinterview.model.Student;
+import com.mockinterview.mockinterview.repository.HeadRepository;
+import com.mockinterview.mockinterview.repository.MentorRepository;
+import com.mockinterview.mockinterview.repository.StudentRepository;
 
 @Service
 public class HeadService {
@@ -135,7 +136,12 @@ public class HeadService {
     }
 
     public Mentor getMentorByEmail(String email) {
-        return mentorRepository.findByEmail(email).orElse(null);
+        List<Mentor> mentors = mentorRepository.findByEmail(email);
+        if (!mentors.isEmpty()) {
+            return mentors.get(0);  // Assuming you want the first mentor in the list
+        } else {
+            return null;
+        }
     }
 
     public List<Mentor> getMentorsByClassBeingMentored(String classBeingMentored) {
@@ -150,12 +156,19 @@ public class HeadService {
     public Student updateStudentById(Long id, Student studentDetails) {
         Optional<Student> optionalStudent = studentRepository.findById(id);
         if (optionalStudent.isPresent()) {
-            Student student = optionalStudent.get();
-            student.setName(studentDetails.getName());
-            student.setEmail(studentDetails.getEmail());
-            student.setDept(studentDetails.getDept());
-            student.setBatch(studentDetails.getBatch());
-            return studentRepository.save(student);
+            // Student student = optionalStudent.get();
+            Student existingStudent = optionalStudent.get();
+            existingStudent.setName(studentDetails.getName());
+            existingStudent.setEmail(studentDetails.getEmail());
+            existingStudent.setPassword(studentDetails.getPassword());
+            existingStudent.setPhoto(studentDetails.getPhoto());
+            existingStudent.setContact(studentDetails.getContact());
+            existingStudent.setRatings(studentDetails.getRatings());
+            existingStudent.setDept(studentDetails.getDept());
+            existingStudent.setBatch(studentDetails.getBatch());
+            existingStudent.setSection(studentDetails.getSection());
+            existingStudent.setRegisterNo(studentDetails.getRegisterNo());
+            return studentRepository.save(existingStudent);
         } else {
             return null;
         }
@@ -185,9 +198,9 @@ public class HeadService {
     }
 
     public List<Student> getStudentsByMentorEmail(String mentorEmail) {
-        Mentor mentor = mentorRepository.findByEmail(mentorEmail).orElse(null);
-        if (mentor != null) {
-            return studentRepository.findByMentor(mentor);
+        List<Mentor> mentors = mentorRepository.findByEmail(mentorEmail);
+        if (!mentors.isEmpty()) {
+            return studentRepository.findByMentor(mentors.get(0));  // Assuming you want the first mentor in the list
         } else {
             return List.of();
         }

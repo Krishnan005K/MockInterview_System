@@ -3,6 +3,7 @@ package com.mockinterview.mockinterview.service;
 import com.mockinterview.mockinterview.model.*;
 import com.mockinterview.mockinterview.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +31,9 @@ public class AdminService {
     @Autowired
     private InterviewerRepository interviewerRepository; // Assuming this exists
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
     // Get all students grouped by department
     public Map<String, List<Student>> getStudentsByDept() {
         List<Student> students = studentRepository.findAll();
@@ -155,6 +159,7 @@ public class AdminService {
 
     // CRUD operations for Admin
     public Admin saveAdmin(Admin admin) {
+        admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         return adminRepository.save(admin);
     }
 
@@ -189,7 +194,7 @@ public class AdminService {
         studentRepository.deleteById(id);
     }
 
-    public List<Student> getStudentsByRatings(Double ratings) {
+    public List<Student> getStudentsByRatings(double ratings) {
         return studentRepository.findByRatingsGreaterThanEqual(ratings);
     }
 

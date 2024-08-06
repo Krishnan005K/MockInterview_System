@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +18,7 @@ import java.util.List;
 public class Head extends User {
     private String dept;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "head")
     private List<Mentor> mentors;
 }

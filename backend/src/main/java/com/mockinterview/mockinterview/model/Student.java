@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,13 +25,16 @@ public class Student extends User {
     private String section;
     private String registerNo;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "mentorId")
     private Mentor mentor;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "student")
     private List<Feedback> feedbacks;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "student")
     private List<Interview> interviews;
 }

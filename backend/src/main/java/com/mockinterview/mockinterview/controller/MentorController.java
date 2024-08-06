@@ -1,58 +1,65 @@
 package com.mockinterview.mockinterview.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.mockinterview.mockinterview.model.Mentor;
 import com.mockinterview.mockinterview.service.MentorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/mentors")
+@RequestMapping("/api/mentors")
 public class MentorController {
 
     @Autowired
     private MentorService mentorService;
 
     @GetMapping
-    public List<Mentor> getAllMentors() {
-        return mentorService.getAllMentors();
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_HEAD', 'ROLE_INTERVIEWER')")
+    public ResponseEntity<List<Mentor>> getAllMentors() {
+        List<Mentor> mentors = mentorService.getAllMentors();
+        return ResponseEntity.ok(mentors);
     }
 
     @PostMapping
-    public Mentor createMentor(@RequestBody Mentor mentor) {
-        return mentorService.addMentor(mentor);
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public ResponseEntity<Mentor> createMentor(@RequestBody Mentor mentor) {
+        Mentor createdMentor = mentorService.addMentor(mentor);
+        return ResponseEntity.ok(createdMentor);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMentor(@PathVariable Long id) {
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    public ResponseEntity<Void> deleteMentor(@PathVariable Long id) {
         mentorService.deleteMentor(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/department/{dept}")
-    public List<Mentor> getMentorsByDept(@PathVariable String dept) {
-        return mentorService.getMentorsByDept(dept);
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_HEAD', 'ROLE_INTERVIEWER')")
+    public ResponseEntity<List<Mentor>> getMentorsByDept(@PathVariable String dept) {
+        List<Mentor> mentors = mentorService.getMentorsByDept(dept);
+        return ResponseEntity.ok(mentors);
     }
 
     @GetMapping("/email/{email}")
-    public List<Mentor> getMentorsByEmail(@PathVariable String email) {
-        return mentorService.getMentorsByEmail(email);
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_HEAD', 'ROLE_INTERVIEWER')")
+    public ResponseEntity<List<Mentor>> getMentorsByEmail(@PathVariable String email) {
+        List<Mentor> mentors = mentorService.getMentorsByEmail(email);
+        return ResponseEntity.ok(mentors);
     }
 
     @GetMapping("/dept/{dept}/class/{classBeingMentored}")
-    public List<Mentor> getMentorsByDeptAndClassBeingMentored(@PathVariable String dept, @PathVariable String classBeingMentored) {
-        return mentorService.getMentorsByDeptAndClassBeingMentored(dept, classBeingMentored);
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_HEAD', 'ROLE_INTERVIEWER')")
+    public ResponseEntity<List<Mentor>> getMentorsByDeptAndClassBeingMentored(@PathVariable String dept, @PathVariable String classBeingMentored) {
+        List<Mentor> mentors = mentorService.getMentorsByDeptAndClassBeingMentored(dept, classBeingMentored);
+        return ResponseEntity.ok(mentors);
     }
 
     @DeleteMapping("/email/{email}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteMentorByEmail(@PathVariable String email) {
         System.out.println("Deleting mentor with email: " + email);
         mentorService.deleteMentorByEmail(email);

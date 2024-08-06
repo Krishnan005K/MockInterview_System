@@ -3,6 +3,7 @@ package com.mockinterview.mockinterview.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mockinterview.mockinterview.model.Mentor;
@@ -14,11 +15,14 @@ public class MentorService {
     @Autowired
     private MentorRepository mentorRepository;
 
+     @Autowired
+    private PasswordEncoder passwordEncoder;
     public List<Mentor> getAllMentors() {
         return mentorRepository.findAll();
     }
 
     public Mentor addMentor(Mentor mentor) {
+        mentor.setPassword(passwordEncoder.encode(mentor.getPassword()));
         return mentorRepository.save(mentor);
     }
 

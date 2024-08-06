@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mockinterview.mockinterview.model.Student;
@@ -16,6 +17,8 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+     @Autowired
+    private PasswordEncoder passwordEncoder;
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
@@ -24,6 +27,7 @@ public class StudentService {
         if (student.getRatings() == null) {
             student.setRatings(0.0); // or any other default value
         }
+        student.setPassword(passwordEncoder.encode(student.getPassword()));
         return studentRepository.save(student);
     }
 
@@ -60,7 +64,7 @@ public class StudentService {
 
 
 
-    public List<Student> getStudentsByRatings(Double ratings) {
+    public List<Student> getStudentsByRatings(double ratings) {
         return studentRepository.findByRatings(ratings);
     }
 
@@ -105,15 +109,22 @@ public class StudentService {
         List<Student> students = studentRepository.findByRegisterNo(registerNo);
         if (!students.isEmpty()) {
             Student existingStudent = students.get(0);
-            // Update the existing student with new details
             existingStudent.setName(studentDetails.getName());
             existingStudent.setEmail(studentDetails.getEmail());
-            // Set other fields as necessary
+            existingStudent.setPassword(studentDetails.getPassword());
+            existingStudent.setPhoto(studentDetails.getPhoto());
+            existingStudent.setContact(studentDetails.getContact());
+            existingStudent.setRatings(studentDetails.getRatings());
+            existingStudent.setDept(studentDetails.getDept());
+            existingStudent.setBatch(studentDetails.getBatch());
+            existingStudent.setSection(studentDetails.getSection());
+            existingStudent.setRegisterNo(studentDetails.getRegisterNo());
             return studentRepository.save(existingStudent);
         } else {
             throw new EntityNotFoundException("Student with registerNo " + registerNo + " not found");
         }
     }
+    
     
 
     // public Student addStudent(Student student) {
@@ -128,10 +139,16 @@ public class StudentService {
         List<Student> students = studentRepository.findByEmail(email);
         if (!students.isEmpty()) {
             Student existingStudent = students.get(0);
-            // Update the existing student with new details
             existingStudent.setName(studentDetails.getName());
+            existingStudent.setEmail(studentDetails.getEmail());
+            existingStudent.setPassword(studentDetails.getPassword());
+            existingStudent.setPhoto(studentDetails.getPhoto());
+            existingStudent.setContact(studentDetails.getContact());
+            existingStudent.setRatings(studentDetails.getRatings());
+            existingStudent.setDept(studentDetails.getDept());
+            existingStudent.setBatch(studentDetails.getBatch());
+            existingStudent.setSection(studentDetails.getSection());
             existingStudent.setRegisterNo(studentDetails.getRegisterNo());
-            // Set other fields as necessary
             return studentRepository.save(existingStudent);
         } else {
             throw new EntityNotFoundException("Student with email " + email + " not found");
