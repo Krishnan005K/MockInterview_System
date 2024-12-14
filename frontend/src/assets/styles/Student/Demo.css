@@ -1,0 +1,53 @@
+/* Video Record Styles */
+.demo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.video-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.video-frame {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+}
+
+.button-container {
+    margin: 20px 0;
+}
+
+.start-button, .stop-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.start-button {
+    background-color: #4CAF50; /* Green */
+}
+
+.stop-button {
+    background-color: #f44336; /* Red */
+}
+
+.question-popup, .transcription-container, .feedback-container, .chart-container {
+    margin: 20px 0;
+}
+
+.video-preview {
+    width: 400px; /* Smaller size for the recorded video */
+    height: auto;
+    border: 2px solid #ccc;
+    margin: 0 auto; /* Center align */
+}
+
+.tab-switches-count {
+    margin-top: 20px;
+}

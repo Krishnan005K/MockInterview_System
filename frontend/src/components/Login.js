@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext'; // Adjust the import path accordingly
 import '../assets/styles/Login.css';
-import img from '../assets/images/loginImg.png';
+import img from '../assets/images/login-image.png';
+import axios from 'axios';
 
 function Login() {
   const { login } = useAuth();
@@ -25,22 +26,17 @@ function Login() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email address is invalid';
-    }
+    // if (!formData.email) {
+    //   newErrors.email = 'Email is required';
+    // } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    //   newErrors.email = 'Email address is invalid';
+    // }
 
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-
+   
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
 
@@ -48,34 +44,63 @@ function Login() {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      const { email, password } = formData;
-
-      // Static validation for the provided credentials
-      if (email === 'admin@gmail.com' && password === 'admin@123') {
-        login({ email, role: 'admin' });
-        navigate('/admin-dashboard');
-      } else if (email === 'Interviewer@gmail.com' && password === 'Interviewer@123') {
-        login({ email, role: 'interviewer' });
-        navigate('/interviewer-dashboard');
-      } else if (email === 'user@gmail.com' && password === 'user@123') {
-        login({ email, role: 'user' });
-        navigate('/user-dashboard');
-      } else {
-        setErrors({ email: 'Invalid email or password' });
+      try{
+        const response= await axios.post(
+          'http://127.0.0.1:8080/api/login',
+          formData
+        );
+        const{email}=formData
+        console.log(response);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('role', response.data.role);
+        localStorage.setItem('email', response.data.email);
+        localStorage.setItem('userId', response.data.userId);
+        const role = localStorage.getItem('role');
+        if(role==='ROLE_ADMIN')
+        {
+          login({ email, role: 'ROLE_ADMIN' });
+          navigate("/admindashboard");
+        }
+        else if(role==='ROLE_STUDENT')
+        {
+          login({ email, role: 'ROLE_STUDENT' });
+          
+          navigate("/student-dashboard");
+        }
+        else if(role==='ROLE_MENTOR')
+        {
+          login({ email, role: 'ROLE_MENTOR' });
+          navigate("/mentor-dashboard");
+        }
+        else if(role==='ROLE_HEAD')
+        {
+          login({ email, role: 'ROLE_HEAD' });
+          localStorage.setItem('deptId', response.data.dept);
+          navigate("/head-dashboard");
+        }
+        else if(role==='ROLE_INTERVIEWER')
+        {
+          login({ email, role: 'ROLE_INTERVIEWER' });
+          navigate("/interviewer-dashboard");
+        }
+       
+      }
+      catch(error){
+        console.log(error);
       }
     }
   };
 
   return (
-    <div className="background-wrapper">
-      <div className="login-container">
-        <div className="whole">
-          <div className="left-half">
+    <div className="login-register-container">
+      <div className="login-container1">
+        <div className="login-img">
             <img src={img} alt="login" />
-          </div>
-          <div className="right-half">
+        </div>
+          <div className="login-subcls">
+              <h1>Login</h1>
             <form onSubmit={handleSubmit} className="login-form">
-              <h1 style={{color:"#2f65ad"}}>Login</h1>
+              <div>
               <input
                 type="email"
                 placeholder="Enter your Email"
@@ -85,7 +110,8 @@ function Login() {
                 className={errors.email ? 'error-input' : ''}
               />
               {errors.email && <p className="error">{errors.email}</p>}
-
+              </div>
+              <div>
               <input
                 type="password"
                 placeholder="Enter password"
@@ -95,16 +121,11 @@ function Login() {
                 className={errors.password ? 'error-input' : ''}
               />
               {errors.password && <p className="error">{errors.password}</p>}
-
-              <button type="submit">Login</button>
-              <div className="links">
-                
-                <p>
-                  Don't have an account? <Link to="/register">Sign Up</Link>
-                </p>
               </div>
+              <button type="submit">Login</button>
+              {/* <div className="links">
+              </div> */}
             </form>
-          </div>
         </div>
       </div>
     </div>

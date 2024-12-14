@@ -22,22 +22,37 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('email');
+    localStorage.removeItem('userId');
     navigate('/');
   };
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * Toggles the theme of the application between light and dark mode.
+ * Changes the isDarkMode state and updates the body's class list
+ * to apply the appropriate theme styles.
+ */
+/******  b9fbf507-83f1-4796-a0aa-68e86d2d9a88  *******/    setIsDarkMode(!isDarkMode);
     document.body.classList.toggle('dark-mode');
   };
 
   return (
     <nav>
       <div className="navbar-logo">
-        <img src={logo} style={{ width: '120px', height: '60px' }} alt="Logo" />
+      {isAuthenticated ? (
+          <div className="navbar-avatar-container">
+          </div>
+        ) : (
+          <img src={logo} style={{ width: '120px', height: '60px' }} alt="Logo" />
+        )}
+       
       </div>
       <div className={`navbar-links-container ${isMenuOpen ? 'open' : ''}`}>
-        <Link to="/" className="navbar-link">Home</Link>
-        <Link to="/" className="navbar-link">Notifications</Link>
+
         {isAuthenticated ? (
           <div className="navbar-avatar-container">
             <FaUserCircle size={30} onClick={toggleDropdown} />

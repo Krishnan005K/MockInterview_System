@@ -1,0 +1,138 @@
+/* Profile Dashboard Container */
+.profile-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 8px;
+}
+
+/* Add this to your existing CSS */
+.profile-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-title {
+  font-size: 2rem;
+  color: #002F6C;
+}
+
+.edit-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #002F6C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button svg {
+  margin-left: 0.5rem;
+}
+
+.edit-button:hover {
+  background-color: #004b94;
+}
+
+/* Info Cards */
+.profile-info-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.info-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  flex-basis: calc(33.333% - 1rem);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.info-card h3 {
+  color: #002F6C;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.info-card p {
+  color: #6a6a6a;
+  font-size: 1rem;
+}
+
+/* Charts Section */
+.charts-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.chart-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  flex-basis: 48%;
+}
+
+.chart-card h3 {
+  color: #002F6C;
+  margin-bottom: 1rem;
+}
+
+/* Score & Status Section */
+.score-status-section {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .profile-info-section, .score-status-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-card {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-card {
+    flex-basis: 100%;
+  }
+
+  .chart-card {
+    padding: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

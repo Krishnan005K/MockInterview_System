@@ -1,0 +1,150 @@
+Mentor View
+.mentor-view {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly less opaque for a cleaner look */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 2px solid #2f65ad; /* Updated to use primary color */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Filters */
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.filters input {
+  padding: 8px;
+  width: 300px; /* Consistent width for inputs */
+  border: 1px solid #ddd; /* Lighter border */
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s ease;
+}
+
+.filters input:focus {
+  border-color: #2f65ad; /* Updated border color */
+  outline: none;
+}
+
+/* Add Mentor Button */
+.add-mentor-button {
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #2f65ad; /* Primary color for buttons */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: blink 2s infinite;
+}
+
+.add-mentor-button:hover {
+  background-color: #1e4a8f; /* Darker shade on hover */
+  transform: scale(1.05);
+}
+
+.add-mentor-button:active {
+  background-color: #004080; /* Even darker shade on active */
+  transform: scale(0.95);
+}
+
+/* Cancel Edit Button */
+.cancel-edit-button {
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #d9534f; /* Red for cancel */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-edit-button:hover {
+  background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Mentor Form */
+.mentor-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mentor-form input {
+  flex: 1 1 200px; /* Ensures all input fields have the same minimum width */
+  padding: 8px;
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ddd; /* Lighter border */
+  transition: border-color 0.3s ease;
+}
+
+.mentor-form input:focus {
+  border-color: #2f65ad; /* Updated border color */
+}
+
+/* Mentor Table */
+.mentor-table {
+  width: 100%;
+  border-collapse: collapse;
+  animation: slideUp 0.8s ease-out;
+}
+
+.mentor-table th, .mentor-table td {
+  border: 1px solid #ddd; /* Lighter border */
+  padding: 12px; /* Increased padding for better readability */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.mentor-table th {
+  background-color: #f4f4f4; /* Light background for headers */
+  color: #2f65ad; /* Updated heading color */
+}
+
+.mentor-table tbody tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Action Icon */
+.action-icon {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #2f65ad; /* Updated icon color */
+  transition: color 0.3s ease;
+}
+
+.action-icon:hover {
+  color: #007bff; /* Hover color */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Blinking animation without fading */
+@keyframes blink {
+  0%, 100% { background-color: #2f65ad; }
+  50% { background-color: #1e4a8f; }
+}

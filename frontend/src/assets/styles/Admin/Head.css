@@ -1,0 +1,153 @@
+/* Head View */
+.head-view {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  max-width: 1200px; /* Limit the width for better alignment */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: space-between; /* Align the filters to the edges */
+  margin-bottom: 20px;
+  gap: 10px; /* Add space between filters */
+}
+
+.filters input,
+.filters select {
+  width: 100%; /* Full width within their container */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #2f65ad;
+  outline: none;
+}
+
+/* Head Form Container */
+.head-form-container {
+  margin-bottom: 20px;
+}
+
+/* Head Form */
+.head-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+  justify-content: space-between; /* Spread input fields */
+}
+
+/* Input Fields in Head Form */
+.head-form input {
+  flex: 1 1 calc(25% - 10px); /* Responsive width based on available space */
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.head-form input:focus {
+  border-color: #2f65ad;
+  outline: none;
+}
+
+/* Add Head Button */
+.add-head-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2f65ad;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the button text */
+  gap: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-head-button:hover {
+  background-color: #1d4b80;
+  transform: scale(1.05);
+}
+
+.add-head-button:disabled {
+  background-color: #9da5b1; /* Gray out the button when disabled */
+  cursor: not-allowed;
+  transform: none; /* Remove hover effects when disabled */
+}
+
+/* Error Message */
+.error-message {
+  color: #ff4d4d;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+  display: block;
+}
+
+/* Error Container */
+.error-container {
+  flex: 1 1 calc(25% - 10px);
+  height: 20px;
+}
+
+/* Head Table */
+.head-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.head-table th,
+.head-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  text-align: left;
+}
+
+.head-table th {
+  background-color: #f4f4f4;
+  color: #2f65ad;
+}
+
+.head-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.head-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Table Hover Effect */
+.head-table tr:hover {
+  background-color: #eaeaea;
+}
+
+/* Action Icons */
+.action-icon {
+  margin-right: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.action-icon:hover {
+  color: #2f65ad;
+  transform: scale(1.2);
+}
