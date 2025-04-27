@@ -95,6 +95,23 @@ $ mvn install
 $ mvn spring-boot:run
 
 ```
+
+# Try this Project Live
+
+Give the defallt username and passwords Both username and Password are Same
+
+Admin Role : admin@gmail.com
+
+HOD Role: head@gmail.com
+
+Mentor Role: mentor@gmail.com
+
+Interviewer Role: interviewer@gmail.com
+
+Student Role: student@gmail.com
+
+
+
 # The server will initialize in the <http://localhost:3000>
 
 
