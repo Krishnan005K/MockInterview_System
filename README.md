@@ -99,7 +99,8 @@ $ mvn spring-boot:run
 # Try this Project Live
 ## <https://prep-plus.vercel.app>
 
-Give the defallt username and passwords Both username and Password are Same
+Give the defallt username and passwords 
+Both username and Password are Same
 
 Admin Role : admin@gmail.com
 
